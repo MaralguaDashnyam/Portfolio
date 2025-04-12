@@ -2,7 +2,7 @@
 
 Welcome to my interactive portfolio — a space where **code meets creativity**, built with care, gifs, gradients, and lots of curiosity.
 
-**View it live here**: [hera-dashnyam.github.io](https://hera-dashnyam.github.io)
+**View it live here**: https://maralguadashnyam.github.io/Portfolio/ 
 
 ---
 
