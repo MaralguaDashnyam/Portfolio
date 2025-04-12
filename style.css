@@ -184,4 +184,41 @@ html, body {
     text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+  .header {
+    font-size: 10vh;
+    margin-top: 10vh;
+  }
+
+  .buttons-wrapper {
+    top: 60vh; /* push buttons lower to fit header */
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .firefly-button,
+  .resume-button,
+  .linkedin-button,
+  .projects-button,
+  .skills-button {
+    width: 80px;
+    height: 80px;
+  }
+
+  .about-me-text,
+  .resume-text,
+  .linkedin-text,
+  .projects-text,
+  .skills-text {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .contact-info {
+    font-size: 1rem;
+    bottom: 20px;
+    width: 90%;
+  }
+}
+
   }
