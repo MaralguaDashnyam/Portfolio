@@ -12,6 +12,7 @@
 
 
 .resume-content {
+    font-family: 'Playfair Display', serif;
     color: white;
     text-align: center;
     font-size: 1.2rem; 
@@ -24,6 +25,7 @@
 }
 
 .resume-content h1 {
+    font-family: 'Great Vibes', cursive;
     font-size: 3rem;
     color: white;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
