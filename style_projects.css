@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Playfair+Display&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Playfair Display', serif; 
+    margin: 0;
+    padding: 0;
+}
+
+.projects-background {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(woodpecker_zoom.jpg); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    z-index: -1; 
+}
+
+.projects-header {
+    font-family: 'Playfair Display', serif; 
+    font-size: 5rem; 
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 
+                 0 0 30px rgba(173, 255, 47, 0.6), 
+                 0 0 40px rgba(50, 205, 50, 0.5), 
+                 0 0 50px rgba(34, 139, 34, 0.4); 
+    margin-top: 10vh; 
+    animation: glow 2s infinite alternate; 
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                     0 0 20px rgba(173, 255, 47, 0.6), 
+                     0 0 30px rgba(50, 205, 50, 0.5), 
+                     0 0 40px rgba(34, 139, 34, 0.4);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 
+                     0 0 30px rgba(173, 255, 47, 0.8), 
+                     0 0 40px rgba(50, 205, 50, 0.6), 
+                     0 0 50px rgba(34, 139, 34, 0.5);
+    }
+}
+
+.projects-content {
+    padding-bottom: 100px; 
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 80%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+}
+
+.project-card h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.project-card ul {
+    margin: 10px 0 20px 20px;
+}
+
+.project-card ul li {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.github-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #A3D977, #4CAF50);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.github-link:hover {
+    background: linear-gradient(135deg, #4CAF50, #A3D977);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.general-github {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.general-github p {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.general-github-link {
+    font-size: 1.5rem;
+}
+
+.go-back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #A3D977, #4CAF50); 
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+.go-back-button:hover {
+    transform: translateX(-50%) scale(1.05); 
+    background: linear-gradient(135deg, #4CAF50, #A3D977);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); 
+}

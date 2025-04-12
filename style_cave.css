@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Playfair+Display&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: 'Playfair Display', serif;
+    background: transparent;
+}
+
+.about-wrapper {
+    padding: 5vh 10vw;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.cave {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('cave.jpg'); 
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.glitter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('glitter.gif'); 
+    background-size: cover;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Firefly visual */
+.firefly-cave {
+    width: 120px;
+    height: 120px;
+    background-image: url('2.gif');
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: -120px;
+    transform: translateX(0);
+    z-index: 11;
+}
+
+/* Title */
+.about-me-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 16vh;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                 0 0 30px rgba(255, 255, 255, 0.8),
+                 0 0 40px rgba(255, 255, 255, 0.6),
+                 0 0 50px rgba(255, 255, 255, 0.4);
+    margin-bottom: 4vh;
+    z-index: 10;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Bullet menu */
+.glowing-bullets {
+    list-style: none;
+    text-align: center;
+    margin: 3vh 0 4vh;
+    padding: 0;
+}
+
+.glowing-bullets li {
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.glowing-bullets li:hover {
+    color: pink;
+    text-shadow: 0 0 30px rgba(255, 182, 193, 1);
+}
+
+/* Content blocks */
+.content-box {
+    display: none;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin-top: 4vh;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* Image galleries */
+.image-gallery-left,
+.image-gallery-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 10vh;
+    width: 150px;
+    z-index: 10;
+}
+
+.image-gallery-left {
+    left: 2vw;
+}
+
+.image-gallery-right {
+    right: 2vw;
+}
+
+.gallery-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.1);
+}
+
+/* Go Back button */
+.go-back {
+    display: block;
+    margin: 60px auto 100px auto;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #F4C2C2, #FF69B4);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+
+.go-back:hover {
+    background: linear-gradient(135deg, #FF69B4, #F4C2C2);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Firefly animations */
+@keyframes flowyLoop {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(200px, -100px) rotate(45deg); }
+    40% { transform: translate(400px, 100px) rotate(-45deg); }
+    60% { transform: translate(600px, -150px) rotate(90deg); }
+    80% { transform: translate(800px, 50px) rotate(-90deg); }
+    100% { transform: translate(1000px, 0) rotate(0deg); }
+}
+
+@keyframes reverseFlowyLoop {
+    0% { transform: translate(1000px, 0) rotate(0deg); }
+    20% { transform: translate(800px, 50px) rotate(-90deg); }
+    40% { transform: translate(600px, -150px) rotate(90deg); }
+    60% { transform: translate(400px, 100px) rotate(-45deg); }
+    80% { transform: translate(200px, -100px) rotate(45deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
