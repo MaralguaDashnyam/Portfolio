@@ -93,7 +93,7 @@ html, body {
 .linkedin-text,
 .projects-text {
     font-family: 'Playfair Display', serif; 
-    font-size: 2rem;
+    font-size: 3rem;
     color: white;
     font-weight: bold; 
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
@@ -152,7 +152,7 @@ html, body {
 
   .skills-text {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 3rem;
       color: white;
       font-weight: bold;
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
