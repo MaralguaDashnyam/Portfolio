@@ -60,9 +60,11 @@ html, body {
 
 .button-pair {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
 /* Contact Info */
