@@ -47,7 +47,6 @@ html, body {
   }
 }
 
-/* Button Layout */
 .buttons-wrapper {
   display: flex;
   flex-direction: column;
