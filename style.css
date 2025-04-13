@@ -89,7 +89,7 @@ html, body {
 /* GIF Assignments */
 .firefly-button  { background-image: url('2.gif'); }
 .resume-button   { background-image: url('butterfly.gif'); }
-.linkedin-button { background-image: url('dandelion.gif'); margin-left: 10px; }
+.linkedin-button { background-image: url('dandelion.gif'); margin-right: 10px; }
 .projects-button { background-image: url('woodpecker.gif'); }
 .skills-button   { background-image: url('leaf.gif'); }
 .filler-button   { background-image: url('filler.gif'); }
