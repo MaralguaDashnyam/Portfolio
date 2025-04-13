@@ -15,16 +15,16 @@ html, body {
 
 /* Background */
 .forest {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('1.gif'); 
-    background-size: cover; 
-    background-position: center center; 
-    background-repeat: no-repeat; 
-    z-index: -1; 
+    width: 100%;
+    height: 100%;
+    background-image: url('1.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 /* Glowing Header */
@@ -56,16 +56,24 @@ html, body {
 
 /* Button Layout */
 .buttons-wrapper {
-    position: absolute;
-    top: calc(10vh + 55%); 
-    left: 50%;
-    transform: translate(-50%, 0); 
     display: flex;
-    flex-direction: row; 
-    justify-content: center; 
-    align-items: center; 
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
+    margin-top: 5vh;
     z-index: 11;
+    position: relative;
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 40px;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    position: relative;
 }
 
 /* Animated Icons */
@@ -133,19 +141,6 @@ html, body {
 @keyframes flyAway {
     0% { transform: translate(-50%, -50%) scale(1); }
     100% { transform: translate(150px, -150px) scale(1.2); }
-}
-
-/* Contact Info */
-.contact-info {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    color: white;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .contact-info a {
