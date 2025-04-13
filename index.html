@@ -5,63 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hera Dashnyam</title>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Loading Screen CSS -->
-  <style>
-    #loading-screen {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: #000000cc;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .firefly-loading {
-      width: 60px;
-      height: 60px;
-      background-image: url('2.gif');
-      background-size: contain;
-      background-repeat: no-repeat;
-      animation: spin 2s linear infinite;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
 </head>
 
 <body>
-  <!-- 🔄 Loading Animation -->
+  <!-- Loading Animation -->
   <div id="loading-screen">
     <div class="firefly-loading"></div>
   </div>
 
-  <!-- 🎵 Background Music -->
-  <audio id="forestAudio" autoplay loop>
+  <!-- Background Music with Volume Control -->
+  <audio id="bg-music" autoplay loop>
     <source src="forest_music.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <!-- 🎛 Volume Slider -->
-  <div class="audio-controls">
-    <label for="volumeSlider">🎵</label>
-    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.3">
+  <div class="volume-control">
+    🔉
+    <input type="range" min="0" max="1" step="0.01" value="0.4" id="volumeSlider">
   </div>
 
-  <!-- 🌲 Glowing Header -->
+  <!-- Header -->
   <h1 class="header">Hera Dashnyam</h1>
 
-  <!-- 🌟 Buttons Section -->
+  <!-- Button Container -->
   <div class="buttons-wrapper">
     <div class="button-pair">
       <div class="firefly-button" onclick="navigateToCave()"></div>
@@ -83,50 +52,43 @@
       <div class="skills-button" onclick="navigateToSkills()"></div>
       <a href="javascript:void(0);" onclick="navigateToSkills()" class="skills-text">Skills & Tools</a>
     </div>
+    <!-- Optional sixth filler -->
     <div class="button-pair">
       <div class="filler-button"></div>
-      <div class="filler-text">...</div>
+      <a href="#" class="skills-text" style="opacity: 0;">---</a>
     </div>
   </div>
 
-  <!-- 📍 Contact Info -->
+  <!-- Contact Info -->
   <div class="contact-info">
     <p>📞 1 (513) 680-9332</p>
     <p>📧 <a href="mailto:hera.dashnyam@gmail.com">hera.dashnyam@gmail.com</a></p>
     <p>📍 Oxford, OH</p>
   </div>
 
-  <!-- JavaScript for transitions + volume -->
+  <!-- Scripts -->
   <script>
-    const audio = document.getElementById('forestAudio');
-    const volumeSlider = document.getElementById('volumeSlider');
-
-    volumeSlider.addEventListener('input', function () {
-      audio.volume = this.value;
-    });
-
+    // Hide loading screen
     window.onload = function () {
       document.getElementById("loading-screen").style.display = "none";
-      document.body.style.opacity = 0;
-      document.body.style.transition = "opacity 1s ease-in-out";
-      setTimeout(() => {
-        document.body.style.opacity = 1;
-      }, 100);
-
-      audio.volume = volumeSlider.value;
     };
 
+    // Navigation
     function navigateToCave() {
       let firefly = document.querySelector('.firefly-button');
       firefly.style.transition = "all 3s ease-in-out";
       firefly.style.transform = "translateX(100vw) translateY(-100vh)";
-      setTimeout(() => { window.location.href = 'Cave.html'; }, 3000);
+      setTimeout(() => {
+        window.location.href = 'Cave.html';
+      }, 3000);
     }
 
     function navigateToResume() {
       let resumeButton = document.querySelector('.resume-button');
       resumeButton.classList.add('fly-away');
-      setTimeout(() => { window.location.href = 'Resume.html'; }, 2000);
+      setTimeout(() => {
+        window.location.href = 'Resume.html';
+      }, 2000);
     }
 
     function navigateToLinkedIn() {
@@ -137,15 +99,26 @@
       let projectsButton = document.querySelector('.projects-button');
       projectsButton.style.transition = "transform 0.5s ease-in-out";
       projectsButton.style.transform = "scale(2)";
-      setTimeout(() => { window.location.href = 'Projects.html'; }, 500);
+      setTimeout(() => {
+        window.location.href = 'Projects.html';
+      }, 500);
     }
 
     function navigateToSkills() {
       let skillsButton = document.querySelector('.skills-button');
       skillsButton.style.transition = "all 3s ease-in-out";
       skillsButton.style.transform = "translateX(100vw) translateY(-100vh)";
-      setTimeout(() => { window.location.href = 'SkillsTools.html'; }, 3000);
+      setTimeout(() => {
+        window.location.href = 'SkillsTools.html';
+      }, 3000);
     }
+
+    // Volume Control
+    const music = document.getElementById("bg-music");
+    const volumeSlider = document.getElementById("volumeSlider");
+    volumeSlider.addEventListener("input", () => {
+      music.volume = volumeSlider.value;
+    });
   </script>
 </body>
 </html>
