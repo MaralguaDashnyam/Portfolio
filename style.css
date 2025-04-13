@@ -12,6 +12,7 @@ html, body {
     overflow: hidden; 
 }
 
+/* Background */
 .forest {
     position: absolute;
     top: 0;
@@ -25,6 +26,7 @@ html, body {
     z-index: -1; 
 }
 
+/* Glowing Header */
 .header {
     font-family: 'Great Vibes', cursive;
     font-size: 20vh; 
@@ -51,6 +53,7 @@ html, body {
     }
 }
 
+/* Button Layout */
 .buttons-wrapper {
     position: absolute;
     top: calc(10vh + 55%); 
@@ -64,10 +67,12 @@ html, body {
     z-index: 11;
 }
 
+/* Animated Icons */
 .firefly-button,
 .resume-button,
 .linkedin-button,
-.projects-button {
+.projects-button,
+.skills-button {
     width: 120px;
     height: 120px;
     background-size: cover;
@@ -79,19 +84,29 @@ html, body {
 .firefly-button:hover,
 .resume-button:hover,
 .linkedin-button:hover,
-.projects-button:hover {
+.projects-button:hover,
+.skills-button:hover {
     filter: brightness(1.5); 
 }
 
-.firefly-button { background-image: url('2.gif'); } /* Firefly GIF */
-.resume-button { background-image: url('butterfly.gif'); } /* Butterfly GIF */
-.linkedin-button { background-image: url('dandelion.gif'); } /* Dandelion GIF */
-.projects-button { background-image: url('woodpecker.gif'); } /* Woodpecker GIF */
+/* Specific Icons */
+.firefly-button { background-image: url('2.gif'); }
+.resume-button { background-image: url('butterfly.gif'); }
+.linkedin-button { background-image: url('dandelion.gif'); }
+.projects-button { background-image: url('woodpecker.gif'); }
+.skills-button  { background-image: url('leaf.gif'); }
 
+.projects-button:active {
+    transform: scale(1.2); 
+    transition: transform 0.5s ease-in-out; 
+}
+
+/* Text Labels */
 .about-me-text,
 .resume-text,
 .linkedin-text,
-.projects-text {
+.projects-text,
+.skills-text {
     font-family: 'Playfair Display', serif; 
     font-size: 3rem;
     color: white;
@@ -103,11 +118,13 @@ html, body {
 .about-me-text:hover,
 .resume-text:hover,
 .linkedin-text:hover,
-.projects-text:hover {
+.projects-text:hover,
+.skills-text:hover {
     color: #FFB6C1;
     text-shadow: 0 0 10px #FFB6C1, 0 0 20px #FFB6C1, 0 0 30px #FFB6C1;
 }
 
+/* Fly away effect */
 .fly-away {
     animation: flyAway 2s ease-in-out forwards;
 }
@@ -117,52 +134,7 @@ html, body {
     100% { transform: translate(150px, -150px) scale(1.2); }
 }
 
-.projects-button {
-    width: 120px;
-    height: 120px;
-    background-image: url('woodpecker.gif'); 
-    background-size: cover;
-    cursor: pointer;
-    animation: fly 5s infinite ease-in-out;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-.projects-button:hover {
-    filter: brightness(1.5); 
-}
-
-.projects-button:active {
-    transform: scale(1.2); 
-    transition: transform 0.5s ease-in-out; 
-}
-
-  .skills-button {
-      width: 120px;
-      height: 120px;
-      background-image: url('leaf.gif');
-      background-size: cover;
-      cursor: pointer;
-      animation: fly 5s infinite ease-in-out;
-      transition: filter 0.3s ease-in-out;
-  }
-
-  .skills-button:hover {
-      filter: brightness(1.5);
-  }
-
-  .skills-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: white;
-      font-weight: bold;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-      transition: all 0.3s ease-in-out;
-  }
-
-  .skills-text:hover {
-      color: #FFB6C1;
-    text-shadow: 0 0 10px #FFB6C1, 0 0 20px #FFB6C1, 0 0 30px #FFB6C1;
-}
+/* Contact Info */
 .contact-info {
     position: absolute;
     bottom: 30px;
@@ -184,41 +156,45 @@ html, body {
     text-decoration: underline;
 }
 
+/* 🌟 MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
-  .header {
-    font-size: 10vh;
-    margin-top: 10vh;
-  }
+    .header {
+        font-size: 10vh;
+        margin-top: 12vh;
+    }
 
-  .buttons-wrapper {
-    top: 60vh; /* push buttons lower to fit header */
-    flex-direction: column;
-    gap: 20px;
-  }
+    .buttons-wrapper {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-top: 5vh;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
 
-  .firefly-button,
-  .resume-button,
-  .linkedin-button,
-  .projects-button,
-  .skills-button {
-    width: 80px;
-    height: 80px;
-  }
+    .firefly-button,
+    .resume-button,
+    .linkedin-button,
+    .projects-button,
+    .skills-button {
+        width: 80px;
+        height: 80px;
+    }
 
-  .about-me-text,
-  .resume-text,
-  .linkedin-text,
-  .projects-text,
-  .skills-text {
-    font-size: 1.4rem;
-    text-align: center;
-  }
+    .about-me-text,
+    .resume-text,
+    .linkedin-text,
+    .projects-text,
+    .skills-text {
+        font-size: 1.4rem;
+        text-align: center;
+    }
 
-  .contact-info {
-    font-size: 1rem;
-    bottom: 20px;
-    width: 90%;
-  }
+    .contact-info {
+        font-size: 1rem;
+        bottom: 20px;
+        width: 90%;
+    }
 }
-
-  }
