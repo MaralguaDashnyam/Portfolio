@@ -89,7 +89,7 @@ html, body {
 /* GIF Assignments */
 .firefly-button  { background-image: url('2.gif'); }
 .resume-button   { background-image: url('butterfly.gif'); }
-.linkedin-button { background-image: url('dandelion.gif'); margin-right: 10px; }
+.linkedin-button { background-image: url('dandelion.gif'); margin-right: 100px; }
 .projects-button { background-image: url('woodpecker.gif'); }
 .skills-button   { background-image: url('leaf.gif'); }
 .filler-button   { background-image: url('filler.gif'); }
@@ -138,26 +138,6 @@ html, body {
 }
 .contact-info a:hover {
   text-decoration: underline;
-}
-
-/* Audio Volume Controls */
-.audio-controls {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 10px;
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-}
-
-.audio-controls input[type="range"] {
-  width: 100px;
-  accent-color: #FFB6C1;
 }
 
 /* Fly away animation */
@@ -232,7 +212,7 @@ body::after {
 }
 
 .volume-control input[type=range] {
-  accent-color: #89CFF0;
+  accent-color: #FFC1CC;
   height: 5px;
   border-radius: 4px;
 }
@@ -242,7 +222,7 @@ body::after {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #000000cc;
+  background: #FFC1CC;
   z-index: 9999;
   display: flex;
   justify-content: center;
