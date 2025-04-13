@@ -45,7 +45,6 @@ html, body {
   }
 }
 
-/* Buttons layout using grid */
 .buttons-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -59,19 +58,18 @@ html, body {
   z-index: 10;
 }
 
-/* Each pair of GIF + Text */
 .button-pair {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Animated Icons */
 .firefly-button,
 .resume-button,
 .linkedin-button,
 .projects-button,
-.skills-button {
+.skills-button,
+.filler-button {
   width: 120px;
   height: 120px;
   background-size: cover;
@@ -88,29 +86,20 @@ html, body {
   filter: brightness(1.5);
 }
 
-/* Specific GIF Icons */
+/* GIF Assignments */
 .firefly-button  { background-image: url('2.gif'); }
 .resume-button   { background-image: url('butterfly.gif'); }
-.linkedin-button { background-image: url('dandelion.gif'); }
+.linkedin-button { background-image: url('dandelion.gif'); margin-left: 10px; }
 .projects-button { background-image: url('woodpecker.gif'); }
 .skills-button   { background-image: url('leaf.gif'); }
+.filler-button   { background-image: url('leaf.gif'); opacity: 0.4; pointer-events: none; }
 
-/* Fly away effect */
-.fly-away {
-  animation: flyAway 2s ease-in-out forwards;
-}
-
-@keyframes flyAway {
-  0%   { transform: translate(-50%, -50%) scale(1); }
-  100% { transform: translate(150px, -150px) scale(1.2); }
-}
-
-/* Text Labels */
 .about-me-text,
 .resume-text,
 .linkedin-text,
 .projects-text,
-.skills-text {
+.skills-text,
+.filler-text {
   margin-top: 10px;
   font-size: 1.5rem;
   font-weight: bold;
@@ -120,16 +109,19 @@ html, body {
   transition: all 0.3s ease-in-out;
 }
 
+.filler-text {
+  opacity: 0.4;
+}
+
 .about-me-text:hover,
 .resume-text:hover,
 .linkedin-text:hover,
 .projects-text:hover,
 .skills-text:hover {
   color: #FFB6C1;
-  text-shadow: 0 0 10px #FFB6C1, 0 0 20px #FFB6C1, 0 0 30px #FFB6C1;
+  text-shadow: 0 0 10px #FFB6C1, 0 0 20px #FFB6C1;
 }
 
-/* Contact Info */
 .contact-info {
   text-align: center;
   margin-top: 40px;
@@ -144,12 +136,40 @@ html, body {
   color: #FFB6C1;
   text-decoration: none;
 }
-
 .contact-info a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Adjustments */
+/* Audio Volume Controls */
+.audio-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.audio-controls input[type="range"] {
+  width: 100px;
+  accent-color: #FFB6C1;
+}
+
+/* Fly away animation */
+.fly-away {
+  animation: flyAway 2s ease-in-out forwards;
+}
+@keyframes flyAway {
+  0%   { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(150px, -150px) scale(1.2); }
+}
+
+/* Responsive Fixes */
 @media (max-width: 768px) {
   .header {
     font-size: 10vh;
@@ -167,7 +187,8 @@ html, body {
   .resume-button,
   .linkedin-button,
   .projects-button,
-  .skills-button {
+  .skills-button,
+  .filler-button {
     width: 80px;
     height: 80px;
   }
@@ -176,7 +197,8 @@ html, body {
   .resume-text,
   .linkedin-text,
   .projects-text,
-  .skills-text {
+  .skills-text,
+  .filler-text {
     font-size: 1.2rem;
   }
 
@@ -186,7 +208,6 @@ html, body {
   }
 }
 
-/* Bottom Padding to Avoid Cutoff */
 body::after {
   content: '';
   display: block;
