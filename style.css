@@ -213,3 +213,58 @@ body::after {
   display: block;
   height: 5vh;
 }
+
+/* Volume Control */
+.volume-control {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.volume-control input[type=range] {
+  accent-color: #89CFF0;
+  height: 5px;
+  border-radius: 4px;
+}
+
+/* Loading Spinner */
+#loading-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000000cc;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.firefly-loading {
+  width: 60px;
+  height: 60px;
+  background-image: url('2.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Adjust dandelion gif */
+.linkedin-button {
+  background-image: url('dandelion.gif');
+  margin-left: 10px; /* Move it slightly to the right */
+}
