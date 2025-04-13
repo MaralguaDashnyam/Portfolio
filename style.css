@@ -11,13 +11,13 @@ html, body {
   overflow-y: auto;
   scroll-behavior: smooth;
 
-  /* Forest background applied directly to body for full coverage */
   background-image: url('1.gif');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-color: transparent;
+  font-family: 'Playfair Display', serif;
 }
 
 /* Glowing Header */
@@ -28,7 +28,6 @@ html, body {
   color: white;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
   margin-top: 20vh;
-  z-index: 10;
   animation: glow 2s infinite alternate;
 }
 
@@ -47,7 +46,7 @@ html, body {
   }
 }
 
-/* Buttons layout for desktop/tablet */
+/* Buttons layout using grid */
 .buttons-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -57,8 +56,8 @@ html, body {
   padding: 5vh 5vw;
   max-width: 1000px;
   margin: 0 auto;
-  z-index: 10;
   position: relative;
+  z-index: 10;
 }
 
 /* Each pair of GIF + Text */
@@ -66,26 +65,6 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Contact Info */
-.contact-info {
-  text-align: center;
-  margin-top: 40px;
-  color: white;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-  z-index: 10;
-  position: relative;
-}
-
-.contact-info a {
-  color: #FFB6C1;
-  text-decoration: none;
-}
-.contact-info a:hover {
-  text-decoration: underline;
 }
 
 /* Animated Icons */
@@ -110,42 +89,12 @@ html, body {
   filter: brightness(1.5);
 }
 
-/* Specific Icons */
+/* Specific GIF Icons */
 .firefly-button  { background-image: url('2.gif'); }
 .resume-button   { background-image: url('butterfly.gif'); }
 .linkedin-button { background-image: url('dandelion.gif'); }
 .projects-button { background-image: url('woodpecker.gif'); }
 .skills-button   { background-image: url('leaf.gif'); }
-
-.projects-button:active {
-  transform: scale(1.2);
-  transition: transform 0.5s ease-in-out;
-}
-
-/* Text Labels */
-
-.about-me-text,
-.resume-text,
-.linkedin-text,
-.projects-text,
-.skills-text {
-  font-family: 'Playfair Display', serif;
-  margin-top: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  text-shadow: 2px 2px 5px black;
-}
-
-.about-me-text:hover,
-.resume-text:hover,
-.linkedin-text:hover,
-.projects-text:hover,
-.skills-text:hover {
-  color: #FFB6C1;
-  text-shadow: 0 0 10px #FFB6C1, 0 0 20px #FFB6C1, 0 0 30px #FFB6C1;
-}
 
 /* Fly away effect */
 .fly-away {
@@ -157,7 +106,51 @@ html, body {
   100% { transform: translate(150px, -150px) scale(1.2); }
 }
 
-/* Mobile Responsive Tweaks */
+/* Text Labels */
+.about-me-text,
+.resume-text,
+.linkedin-text,
+.projects-text,
+.skills-text {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 5px black;
+  transition: all 0.3s ease-in-out;
+}
+
+.about-me-text:hover,
+.resume-text:hover,
+.linkedin-text:hover,
+.projects-text:hover,
+.skills-text:hover {
+  color: #FFB6C1;
+  text-shadow: 0 0 10px #FFB6C1, 0 0 20px #FFB6C1, 0 0 30px #FFB6C1;
+}
+
+/* Contact Info */
+.contact-info {
+  text-align: center;
+  margin-top: 40px;
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  position: relative;
+}
+
+.contact-info a {
+  color: #FFB6C1;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .header {
     font-size: 10vh;
@@ -165,10 +158,9 @@ html, body {
   }
 
   .buttons-wrapper {
-    position: relative;
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 20px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 2vh 20px;
     margin-top: 5vh;
   }
 
@@ -186,18 +178,16 @@ html, body {
   .linkedin-text,
   .projects-text,
   .skills-text {
-    font-size: 1.4rem;
-    text-align: center;
+    font-size: 1.2rem;
   }
 
   .contact-info {
     font-size: 1rem;
     margin-bottom: 30px;
-    width: 90%;
   }
 }
 
-/* Add subtle space to bottom for safe scroll */
+/* Bottom Padding to Avoid Cutoff */
 body::after {
   content: '';
   display: block;
