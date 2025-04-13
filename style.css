@@ -47,21 +47,25 @@ html, body {
   }
 }
 
+/* Buttons layout for desktop/tablet */
 .buttons-wrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 60px;
+  justify-items: center;
   align-items: center;
-  gap: 30px;
-  margin-top: 5vh;
-  z-index: 11;
+  padding: 5vh 5vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  z-index: 10;
   position: relative;
 }
 
+/* Each pair of GIF + Text */
 .button-pair {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
 }
 
 /* Contact Info */
@@ -93,9 +97,9 @@ html, body {
   width: 120px;
   height: 120px;
   background-size: cover;
+  background-position: center;
   cursor: pointer;
-  animation: fly 5s infinite ease-in-out;
-  transition: filter 0.3s ease-in-out;
+  transition: filter 0.3s ease;
 }
 
 .firefly-button:hover,
@@ -119,18 +123,19 @@ html, body {
 }
 
 /* Text Labels */
+
 .about-me-text,
 .resume-text,
 .linkedin-text,
 .projects-text,
 .skills-text {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: white;
+  margin-top: 10px;
+  font-size: 1.5rem;
   font-weight: bold;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-  transition: all 0.3s ease-in-out;
+  color: white;
   text-align: center;
+  text-shadow: 2px 2px 5px black;
 }
 
 .about-me-text:hover,
