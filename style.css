@@ -10,13 +10,11 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
-
   background-image: url('1.gif');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: transparent;
   font-family: 'Playfair Display', serif;
 }
 
@@ -31,26 +29,14 @@ html, body {
 }
 
 @keyframes glow {
-  0% {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-                 0 0 20px rgba(255, 255, 255, 0.6),
-                 0 0 30px rgba(255, 255, 255, 0.5),
-                 0 0 40px rgba(255, 255, 255, 0.4);
-  }
-  100% {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
-                 0 0 30px rgba(255, 255, 255, 0.8),
-                 0 0 40px rgba(255, 255, 255, 0.6),
-                 0 0 50px rgba(255, 255, 255, 0.4);
-  }
+  0% { text-shadow: 0 0 10px rgba(255,255,255,0.8); }
+  100% { text-shadow: 0 0 50px rgba(255,255,255,1); }
 }
 
 .buttons-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 60px;
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 50px;
   padding: 5vh 5vw;
   max-width: 1000px;
   margin: 0 auto;
@@ -86,13 +72,12 @@ html, body {
   filter: brightness(1.5);
 }
 
-/* GIF Assignments */
 .firefly-button  { background-image: url('2.gif'); }
 .resume-button   { background-image: url('butterfly.gif'); }
-.linkedin-button { background-image: url('dandelion.gif'); margin-right: 1000px; }
+.linkedin-button { background-image: url('dandelion.gif'); margin-left: 10px; }
 .projects-button { background-image: url('woodpecker.gif'); }
 .skills-button   { background-image: url('leaf.gif'); }
-.filler-button   { background-image: url('FILLER.gif'); }
+.filler-button   { background-image: url('FILLER.gif'); opacity: 0.4; pointer-events: none; }
 
 .about-me-text,
 .resume-text,
@@ -106,11 +91,6 @@ html, body {
   color: white;
   text-align: center;
   text-shadow: 2px 2px 5px black;
-  transition: all 0.3s ease-in-out;
-}
-
-.filler-text {
-  opacity: 0.4;
 }
 
 .about-me-text:hover,
@@ -119,7 +99,11 @@ html, body {
 .projects-text:hover,
 .skills-text:hover {
   color: #FFB6C1;
-  text-shadow: 0 0 10px #FFB6C1, 0 0 20px #FFB6C1;
+  text-shadow: 0 0 10px #FFB6C1;
+}
+
+.filler-text {
+  opacity: 0.4;
 }
 
 .contact-info {
@@ -127,9 +111,8 @@ html, body {
   margin-top: 40px;
   color: white;
   font-size: 1.5rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
   z-index: 10;
-  position: relative;
 }
 
 .contact-info a {
@@ -140,61 +123,6 @@ html, body {
   text-decoration: underline;
 }
 
-/* Fly away animation */
-.fly-away {
-  animation: flyAway 2s ease-in-out forwards;
-}
-@keyframes flyAway {
-  0%   { transform: translate(-50%, -50%) scale(1); }
-  100% { transform: translate(150px, -150px) scale(1.2); }
-}
-
-/* Responsive Fixes */
-@media (max-width: 768px) {
-  .header {
-    font-size: 10vh;
-    margin-top: 12vh;
-  }
-
-  .buttons-wrapper {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 2vh 20px;
-    margin-top: 5vh;
-  }
-
-  .firefly-button,
-  .resume-button,
-  .linkedin-button,
-  .projects-button,
-  .skills-button,
-  .filler-button {
-    width: 80px;
-    height: 80px;
-  }
-
-  .about-me-text,
-  .resume-text,
-  .linkedin-text,
-  .projects-text,
-  .skills-text,
-  .filler-text {
-    font-size: 1.2rem;
-  }
-
-  .contact-info {
-    font-size: 1rem;
-    margin-bottom: 30px;
-  }
-}
-
-body::after {
-  content: '';
-  display: block;
-  height: 5vh;
-}
-
-/* Volume Control */
 .volume-control {
   position: fixed;
   top: 15px;
@@ -217,7 +145,6 @@ body::after {
   border-radius: 4px;
 }
 
-/* Loading Spinner */
 #loading-screen {
   position: fixed;
   width: 100%;
@@ -243,8 +170,52 @@ body::after {
   100% { transform: rotate(360deg); }
 }
 
-/* Adjust dandelion gif */
-.linkedin-button {
-  background-image: url('dandelion.gif');
-  margin-left: 10px; /* Move it slightly to the right */
+.fly-away {
+  animation: flyAway 2s ease-in-out forwards;
+}
+
+@keyframes flyAway {
+  0%   { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(150px, -150px) scale(1.2); }
+}
+
+@media (max-width: 768px) {
+  .header { font-size: 10vh; margin-top: 12vh; }
+  .buttons-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 2vh 20px;
+    margin-top: 5vh;
+  }
+  .firefly-button,
+  .resume-button,
+  .linkedin-button,
+  .projects-button,
+  .skills-button,
+  .filler-button {
+    width: 80px;
+    height: 80px;
+  }
+  .about-me-text,
+  .resume-text,
+  .linkedin-text,
+  .projects-text,
+  .skills-text,
+  .filler-text {
+    font-size: 1.2rem;
+  }
+  .contact-info {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  .volume-control {
+    transform: scale(0.8);
+    right: 10px;
+  }
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 5vh;
 }
