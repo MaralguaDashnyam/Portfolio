@@ -4,13 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hera Dashnyam</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Loading Animation -->
+  <style>
+    #loading-screen {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #000000cc;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .firefly-loading {
+      width: 60px;
+      height: 60px;
+      background-image: url('2.gif');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Background -->
-  <div class="forest"></div>
+  <!-- Loading Animation -->
+  <div id="loading-screen">
+    <div class="firefly-loading"></div>
+  </div>
+
+  <!-- Background Music -->
+  <audio autoplay loop hidden>
+    <source src="forest.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <!-- Header -->
   <h1 class="header">Hera Dashnyam</h1>
@@ -46,8 +86,18 @@
     <p>📍 Oxford, OH</p>
   </div>
 
-  <!-- Navigation Script -->
+  <!-- JavaScript -->
   <script>
+    // Hide loading after page loads
+    window.onload = function () {
+      document.getElementById("loading-screen").style.display = "none";
+      document.body.style.opacity = 0;
+      document.body.style.transition = "opacity 1s ease-in-out";
+      setTimeout(() => {
+        document.body.style.opacity = 1;
+      }, 100);
+    };
+
     function navigateToCave() {
       let firefly = document.querySelector('.firefly-button');
       firefly.style.transition = "all 3s ease-in-out";
@@ -86,14 +136,6 @@
         window.location.href = 'SkillsTools.html';
       }, 3000);
     }
-
-    window.onload = function() {
-      document.body.style.opacity = 0;
-      document.body.style.transition = "opacity 1s ease-in-out";
-      setTimeout(() => {
-        document.body.style.opacity = 1;
-      }, 100);
-    };
   </script>
 </body>
 </html>
