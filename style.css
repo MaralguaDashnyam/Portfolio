@@ -59,11 +59,9 @@ html, body {
 
 .button-pair {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: nowrap;
   flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 
 /* Contact Info */
