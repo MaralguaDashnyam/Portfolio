@@ -24,16 +24,15 @@
   <main class="about-wrapper">
     <h1 class="about-me-title">About Me</h1>
 
-    <div class="image-gallery-left">
+    <!-- Image Gallery -->
+    <div class="gallery-container">
       <img src="about_me_pic1.jpeg" alt="Picture 1" class="gallery-image">
       <img src="about_me_pic2.jpeg" alt="Picture 2" class="gallery-image">
-    </div>
-
-    <div class="image-gallery-right">
       <img src="about_me_pic3.png" alt="Picture 3" class="gallery-image">
       <img src="about_me_pic4.png" alt="Picture 4" class="gallery-image">
     </div>
 
+    <!-- Bullet List -->
     <ul class="glowing-bullets">
       <li class="bullet" data-content="whoiam">Who I Am</li>
       <li class="bullet" data-content="myjourney">My Journey</li>
@@ -41,6 +40,7 @@
       <li class="bullet" data-content="whatispire">What I Aspire</li>
     </ul>
 
+    <!-- Bullet Content -->
     <div class="bullet-content">
       <div id="whoiam" class="content-box">
         <p>Hello, I’m Hera Dashnyam. I’m a Mongolian undergraduate studying Data Analytics with a concentration in Bioinformatics and Environmental Science at Miami University. I care about building things that are practical, human-centered, and meaningful, whether that’s research that helps vulnerable populations or creative projects that tell a story. I come from a nomadic family that values resilience, humility, and curiosity, and I try to bring those values into everything I do, from volunteering to writing code.</p>
@@ -56,6 +56,7 @@
       </div>
     </div>
 
+    <!-- Go Back Button -->
     <a href="javascript:void(0);" onclick="goBackToForest()" class="go-back">Go Back</a>
   </main>
 
@@ -79,9 +80,11 @@
       const bullets = document.querySelectorAll('.bullet');
       const contentBoxes = document.querySelectorAll('.content-box');
       bullets.forEach(bullet => {
-        bullet.addEventListener('mouseenter', function () {
+        bullet.addEventListener('click', function () {
           contentBoxes.forEach(box => box.style.display = 'none');
-          document.getElementById(bullet.getAttribute('data-content')).style.display = 'block';
+          const targetBox = document.getElementById(bullet.getAttribute('data-content'));
+          targetBox.style.display = 'block';
+          targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
       });
     }
@@ -96,5 +99,6 @@
       }, 3000);
     }
   </script>
+
 </body>
 </html>
