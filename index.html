@@ -25,7 +25,7 @@
   </div>
 
   <!-- Background Music -->
-  <audio id="bg-music" loop>
+  <audio id="bg-music" autoplay muted loop>
     <source src="forest_music.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -71,6 +71,7 @@
   <!-- Scripts -->
   <script>
     window.onload = function () {
+      // Fade-in effect
       document.getElementById("loading-screen").style.display = "none";
       document.body.style.opacity = 0;
       document.body.style.transition = "opacity 1s ease-in-out";
@@ -78,12 +79,16 @@
         document.body.style.opacity = 1;
       }, 100);
 
+      // Music control
       const music = document.getElementById("bg-music");
       const volumeSlider = document.getElementById("volume");
       music.volume = volumeSlider.value;
 
-      music.play().catch(() => {
+      music.play().then(() => {
+        music.muted = false;
+      }).catch(() => {
         document.body.addEventListener('click', () => {
+          music.muted = false;
           music.play();
         }, { once: true });
       });
@@ -95,15 +100,15 @@
 
     function navigateToCave() {
       let firefly = document.querySelector('.firefly-button');
-      firefly.style.transition = "all 3s ease-in-out";
+      firefly.style.transition = "all 0.8s ease-in-out";
       firefly.style.transform = "translateX(100vw) translateY(-100vh)";
-      setTimeout(() => { window.location.href = 'Cave.html'; }, 3000);
+      setTimeout(() => { window.location.href = 'Cave.html'; }, 800);
     }
 
     function navigateToResume() {
       let resumeButton = document.querySelector('.resume-button');
       resumeButton.classList.add('fly-away');
-      setTimeout(() => { window.location.href = 'Resume.html'; }, 2000);
+      setTimeout(() => { window.location.href = 'Resume.html'; }, 500);
     }
 
     function navigateToLinkedIn() {
@@ -119,9 +124,9 @@
 
     function navigateToSkills() {
       let btn = document.querySelector('.skills-button');
-      btn.style.transition = "all 3s ease-in-out";
+      btn.style.transition = "all 0.8s ease-in-out";
       btn.style.transform = "translateX(100vw) translateY(-100vh)";
-      setTimeout(() => { window.location.href = 'SkillsTools.html'; }, 3000);
+      setTimeout(() => { window.location.href = 'SkillsTools.html'; }, 800);
     }
   </script>
 </body>
