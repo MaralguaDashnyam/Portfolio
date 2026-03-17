@@ -72,14 +72,8 @@ body::before {
   background-size: cover;
   background-position: center;
   cursor: pointer;
-
-  /* IMPORTANT: remove shape forcing */
   border-radius: 0;
-
-  /* REMOVE rectangle glow */
   box-shadow: none;
-
-  /* KEEP smooth interaction */
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -140,8 +134,9 @@ body::before {
   z-index: 10;
 }
 
-/* replace ONLY this part */
-.contact-info a {
+.contact-info a,
+.contact-info a:visited,
+.contact-info a:active {
   color: white;
   text-decoration: none;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
