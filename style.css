@@ -10,22 +10,15 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
-  font-family: 'Playfair Display', serif;
-}
-
-body {
-  position: relative;
-  background-image:
-    linear-gradient(rgba(8, 12, 8, 0.28), rgba(8, 12, 8, 0.52)),
-    radial-gradient(circle at center, rgba(255, 240, 200, 0.08), rgba(0, 0, 0, 0.35)),
-    url('1.gif');
+  background-image: url('1.gif');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  color: white;
+  font-family: 'Playfair Display', serif;
 }
 
+/* keep your depth overlay */
 body::before {
   content: '';
   position: fixed;
@@ -37,85 +30,39 @@ body::before {
   z-index: 0;
 }
 
-body::after {
-  content: '';
-  display: block;
-  height: 5vh;
-}
-
 .header {
-  position: relative;
-  z-index: 10;
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(4.5rem, 12vw, 10rem);
+  font-size: 20vh;
   text-align: center;
-  color: #fff8e7;
-  margin-top: 14vh;
-  text-shadow:
-    0 0 8px rgba(255, 247, 220, 0.65),
-    0 0 18px rgba(255, 236, 170, 0.45),
-    0 0 36px rgba(255, 214, 120, 0.28),
-    2px 2px 14px rgba(0, 0, 0, 0.55);
-  animation: glow 3.6s ease-in-out infinite alternate;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  margin-top: 20vh;
+  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-  0% {
-    text-shadow:
-      0 0 8px rgba(255, 247, 220, 0.55),
-      0 0 16px rgba(255, 236, 170, 0.35);
-  }
-  100% {
-    text-shadow:
-      0 0 14px rgba(255, 247, 220, 0.85),
-      0 0 28px rgba(255, 236, 170, 0.60);
-  }
-}
-
-.hero-text {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  margin: 0.8rem 0 2rem;
-}
-
-.tagline {
-  color: #f9f2d8;
-  font-size: 1.18rem;
-}
-
-.intro-line {
-  max-width: 760px;
-  margin: 0 auto;
-  font-size: 1rem;
-  color: rgba(255, 250, 236, 0.95);
+  0% { text-shadow: 0 0 10px rgba(255,255,255,0.8); }
+  100% { text-shadow: 0 0 50px rgba(255,255,255,1); }
 }
 
 .buttons-wrapper {
-  position: relative;
-  z-index: 10;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 42px;
-  padding: 3vh 5vw;
-  max-width: 1050px;
+  gap: 50px;
+  padding: 5vh 5vw;
+  max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .button-pair {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: floatSoft 6s ease-in-out infinite;
 }
 
-@keyframes floatSoft {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
-}
-
-/* 🔥 BUTTON FIX */
+/* ✅ YOUR ORIGINAL BUTTONS (RESTORED) */
 .firefly-button,
 .resume-button,
 .linkedin-button,
@@ -124,53 +71,39 @@ body::after {
 .filler-button {
   width: 120px;
   height: 120px;
-
-  background-size: contain;
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
-  border: none;
-  outline: none;
-  background-color: transparent;
-
-  appearance: none;
-  -webkit-appearance: none;
-
   cursor: pointer;
 
-  /* ❌ NO SHAPE FORCING */
+  /* IMPORTANT: remove shape forcing */
   border-radius: 0;
+
+  /* REMOVE rectangle glow */
   box-shadow: none;
 
-  padding: 0;
-  margin: 0;
-
-  transition: transform 0.35s ease, filter 0.35s ease;
+  /* KEEP smooth interaction */
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* ✨ NATURAL GLOW */
+/* ✅ NATURAL GLOW (like your original, but cleaner) */
 .firefly-button:hover,
 .resume-button:hover,
 .linkedin-button:hover,
 .projects-button:hover,
 .skills-button:hover {
-  transform: translateY(-4px) scale(1.06);
-
-  filter:
-    brightness(1.15)
-    drop-shadow(0 0 6px rgba(255, 240, 180, 0.6))
-    drop-shadow(0 0 16px rgba(255, 210, 120, 0.4));
+  transform: translateY(-4px) scale(1.05);
+  filter: brightness(1.4);
 }
 
 .firefly-button  { background-image: url('2.gif'); }
 .resume-button   { background-image: url('butterfly.gif'); }
-.linkedin-button { background-image: url('dandelion.gif'); }
+.linkedin-button { background-image: url('dandelion.gif'); margin-left: 10px; }
 .projects-button { background-image: url('woodpecker.gif'); }
 .skills-button   { background-image: url('leaf.gif'); }
 
 .filler-button {
   background-image: url('FILLER.gif');
-  opacity: 0.35;
+  opacity: 0.4;
   pointer-events: none;
 }
 
@@ -181,11 +114,11 @@ body::after {
 .skills-text,
 .filler-text {
   margin-top: 10px;
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #fffaf0;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-  transition: all 0.25s ease;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 5px black;
 }
 
 .about-me-text:hover,
@@ -193,14 +126,30 @@ body::after {
 .linkedin-text:hover,
 .projects-text:hover,
 .skills-text:hover {
-  color: #ffe3ef;
-  text-shadow: 0 0 10px #ffc9dc;
+  color: #FFB6C1;
+  text-shadow: 0 0 10px #FFB6C1;
+}
+
+.filler-text {
+  opacity: 0.4;
 }
 
 .contact-info {
   text-align: center;
-  margin-top: 2rem;
-  font-size: 1.2rem;
+  margin-top: 40px;
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+.contact-info a {
+  color: #FFB6C1;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
 }
 
 .volume-control {
@@ -208,15 +157,28 @@ body::after {
   top: 15px;
   right: 20px;
   z-index: 1000;
-  background: rgba(0,0,0,0.4);
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  background: rgba(0, 0, 0, 0.5);
   padding: 6px 10px;
-  border-radius: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.volume-control input[type=range] {
+  accent-color: #FFC1CC;
+  height: 5px;
+  border-radius: 4px;
 }
 
 #loading-screen {
   position: fixed;
-  inset: 0;
-  background: #f8c6d6;
+  width: 100%;
+  height: 100%;
+  background: #FFC1CC;
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -228,20 +190,32 @@ body::after {
   height: 60px;
   background-image: url('2.gif');
   background-size: contain;
+  background-repeat: no-repeat;
   animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+.fly-away {
+  animation: flyAway 2s ease-in-out forwards;
+}
+
+@keyframes flyAway {
+  0%   { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(150px, -150px) scale(1.2); }
 }
 
 @media (max-width: 768px) {
-  .header {
-    font-size: clamp(3.6rem, 15vw, 5.4rem);
-  }
+  .header { font-size: 10vh; margin-top: 12vh; }
 
   .buttons-wrapper {
     grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 2vh 20px;
+    margin-top: 5vh;
   }
 
   .firefly-button,
@@ -250,7 +224,32 @@ body::after {
   .projects-button,
   .skills-button,
   .filler-button {
-    width: 88px;
-    height: 88px;
+    width: 80px;
+    height: 80px;
   }
+
+  .about-me-text,
+  .resume-text,
+  .linkedin-text,
+  .projects-text,
+  .skills-text,
+  .filler-text {
+    font-size: 1.2rem;
+  }
+
+  .contact-info {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .volume-control {
+    transform: scale(0.8);
+    right: 10px;
+  }
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 5vh;
 }
