@@ -1,47 +1,77 @@
 # 🌿 Hera Dashnyam’s Portfolio
 
-Welcome to my interactive portfolio — a space where **code meets creativity**, built with care, gifs, gradients, and lots of curiosity.
+Welcome to my interactive portfolio — a space where **code, design, and storytelling meet**.
 
-**View it live here**: https://maralguadashnyam.github.io/Portfolio/ 
+🔗 **Live site**: https://maralguadashnyam.github.io/Portfolio/
 
 ---
 
 ## 🧚 About This Site
 
-This portfolio is fully custom-coded using:
-- **HTML** & **CSS** for structure and styling
-- A sprinkle of **JavaScript** for animations and transitions
-- Hand-drawn layout and themed buttons with **GIF elements**
-- Light responsive design and soft shadows for accessibility
+This portfolio is fully custom-built from scratch using:
 
-Each page is its own unique little universe — with animated elements, hover effects, and interactive visuals. I designed it to feel more like an experience than a résumé.
+* **HTML** and **CSS** for structure and styling
+* **JavaScript** for animation and interaction
+* Hand-designed layouts with **custom GIF elements**
+* Subtle responsiveness and visual layering for a smoother experience
 
----
-
-## 💻 How It’s Structured
-
-📁 root ├── index.html (main forest page 🌲) ├── Resume.html (with butterfly theme 🦋) ├── Projects.html (woodpecker dashboards 🐦) ├── SkillsTools.html (leafy skill garden 🍃) ├── Cave.html (glittery About Me section ✨) ├── style_*.css (page-specific styling) └── assets (images, GIFs, PDFs, etc.)
-
-
-> The entire site runs through GitHub Pages — no frameworks or builders used.
+Each page is designed as its own environment — not just a section.
+The goal was to create something that feels **explorable**, not just readable.
 
 ---
 
-## 🛠️ How I Maintain It
+## 💻 Structure
 
-- Everything is built with vanilla code — no templates, no drag-and-drop.
-- I regularly update my **projects**, **skills**, and **research** work.
-- Bugs, visual polish, or new animations are improved as I learn new tools.
+```
+root/
+├── index.html           (main forest landing page 🌲)
+├── Resume.html          (butterfly theme 🦋)
+├── Projects.html        (project dashboard 🐦)
+├── SkillsTools.html     (skills garden 🍃)
+├── Cave.html            (interactive About Me ✨)
+├── style_*.css          (page-specific styling)
+└── assets/              (images, GIFs, PDFs)
+```
+
+> Hosted with GitHub Pages. No frameworks, no builders — fully hand-coded.
 
 ---
 
-## 🌎 Why I Made This
+## 🛠️ Development Approach
 
-As someone passionate about **data**, **environmental science**, and **design**, I wanted to create a digital space that reflects who I am — not just what I do.
+* Built entirely with **vanilla HTML, CSS, and JavaScript**
+* No templates or pre-built UI systems
+* Iteratively improved through:
 
-This portfolio isn’t just about showing off. It’s about **storytelling through code**, blending visuals and structure, and quietly supporting something bigger.
+  * animation refinement
+  * layout adjustments
+  * performance and responsiveness tweaks
+
+This site evolves as I learn — both technically and creatively.
 
 ---
 
-Thank you for visiting!  
-🦋 — Hera Dashnyam
+## 🌎 Why This Exists
+
+I wanted a space that reflects how I think.
+
+Not just:
+
+> what I’ve done
+
+But:
+
+> how I approach building, designing, and solving problems
+
+It brings together my interests in:
+
+* data and bioinformatics
+* environmental thinking
+* visual storytelling
+
+This portfolio is less about presentation, and more about **intentional design through code**.
+
+---
+
+Thanks for visiting
+🦋 Hera Dashnyam
