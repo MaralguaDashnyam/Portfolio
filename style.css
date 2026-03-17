@@ -179,15 +179,26 @@ body::after {
   cursor: pointer;
   border: none;
   outline: none;
-  border-radius: 50%;
+
+  border-radius: 0;
+
   transition:
     transform 0.35s ease,
     filter 0.35s ease,
     box-shadow 0.35s ease,
     opacity 0.35s ease;
+
   box-shadow:
     0 0 0 rgba(0, 0, 0, 0),
     0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.firefly-button,
+.resume-button,
+.linkedin-button,
+.projects-button,
+.skills-button {
+  border-radius: 16px;
 }
 
 .firefly-button:hover,
