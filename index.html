@@ -175,97 +175,100 @@
 
   <!-- Scripts -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const loadingScreen = document.getElementById("loading-screen");
-      const music = document.getElementById("bg-music");
-      const volumeSlider = document.getElementById("volume");
+  document.addEventListener("DOMContentLoaded", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+    const music = document.getElementById("bg-music");
+    const volumeSlider = document.getElementById("volume");
 
-      // Reveal page sooner so it feels faster
-      loadingScreen.style.display = "none";
-      requestAnimationFrame(() => {
-        document.body.style.opacity = 1;
-      });
-
-      // Set volume immediately
-      music.volume = parseFloat(volumeSlider.value);
-
-      // Try autoplay
-      const tryPlayMusic = async () => {
-        try {
-          await music.play();
-          music.muted = false;
-        } catch (error) {
-          console.log("Autoplay blocked until user interaction.");
-        }
-      };
-
-      tryPlayMusic();
-
-      // Fallback on first user interaction
-      const unlockAudio = async () => {
-        try {
-          music.muted = false;
-          music.volume = parseFloat(volumeSlider.value);
-          await music.play();
-        } catch (error) {
-          console.log("Audio still blocked.");
-        }
-      };
-
-      document.body.addEventListener("click", unlockAudio, { once: true });
-      document.body.addEventListener("touchstart", unlockAudio, { once: true });
-
-      volumeSlider.addEventListener("input", () => {
-        music.volume = parseFloat(volumeSlider.value);
-      });
+    // Reveal page sooner so it feels faster
+    loadingScreen.style.display = "none";
+    requestAnimationFrame(() => {
+      document.body.style.opacity = 1;
     });
 
-    function navigateToCave() {
-      const firefly = document.querySelector(".firefly-button");
-      if (firefly) {
-        firefly.style.transition = "all 1.2s ease-in-out";
-        firefly.style.transform = "translateX(100vw) translateY(-100vh)";
-      }
-      setTimeout(() => {
-        window.location.href = "Cave.html";
-      }, 1200);
-    }
+    // Set volume immediately
+    music.volume = parseFloat(volumeSlider.value);
 
-    function navigateToResume() {
-      const resumeButton = document.querySelector(".resume-button");
-      if (resumeButton) {
-        resumeButton.classList.add("fly-away");
+    // Autoplay muted on load, this is always allowed instantly, no click needed
+    const tryPlayMusic = async () => {
+      try {
+        await music.play();
+      } catch (error) {
+        console.log("Autoplay blocked until user interaction.");
       }
-      setTimeout(() => {
-        window.location.href = "Resume.html";
-      }, 500);
-    }
+    };
 
-    function navigateToLinkedIn() {
-      window.open("https://www.linkedin.com/in/hera-d/", "_blank", "noopener,noreferrer");
-    }
+    tryPlayMusic();
 
-    function navigateToProjects() {
-      const btn = document.querySelector(".projects-button");
-      if (btn) {
-        btn.style.transition = "transform 0.5s ease-in-out";
-        btn.style.transform = "scale(2)";
+    // Unmute on first click/tap, music is already playing so this just
+    // turns sound on with no restart and no stutter
+    const unlockAudio = async () => {
+      try {
+        music.volume = parseFloat(volumeSlider.value);
+        music.muted = false;
+        if (music.paused) {
+          await music.play();
+        }
+      } catch (error) {
+        console.log("Audio still blocked.");
       }
-      setTimeout(() => {
-        window.location.href = "Projects.html";
-      }, 500);
-    }
+    };
 
-    function navigateToSkills() {
-      const btn = document.querySelector(".skills-button");
-      if (btn) {
-        btn.style.transition = "all 0.8s ease-in-out";
-        btn.style.transform = "translateX(100vw) translateY(-100vh)";
-      }
-      setTimeout(() => {
-        window.location.href = "SkillsTools.html";
-      }, 800);
+    document.body.addEventListener("click", unlockAudio, { once: true });
+    document.body.addEventListener("touchstart", unlockAudio, { once: true });
+
+    volumeSlider.addEventListener("input", () => {
+      music.volume = parseFloat(volumeSlider.value);
+    });
+  });
+
+  function navigateToCave() {
+    const firefly = document.querySelector(".firefly-button");
+    if (firefly) {
+      firefly.style.transition = "all 1.2s ease-in-out";
+      firefly.style.transform = "translateX(100vw) translateY(-100vh)";
     }
-  </script>
+    setTimeout(() => {
+      window.location.href = "Cave.html";
+    }, 1200);
+  }
+
+  function navigateToResume() {
+    const resumeButton = document.querySelector(".resume-button");
+    if (resumeButton) {
+      resumeButton.classList.add("fly-away");
+    }
+    setTimeout(() => {
+      window.location.href = "Resume.html";
+    }, 500);
+  }
+
+  function navigateToLinkedIn() {
+    window.open("https://www.linkedin.com/in/hera-d/", "_blank", "noopener,noreferrer");
+  }
+
+  function navigateToProjects() {
+    const btn = document.querySelector(".projects-button");
+    if (btn) {
+      btn.style.transition = "transform 0.5s ease-in-out";
+      btn.style.transform = "scale(2)";
+    }
+    setTimeout(() => {
+      window.location.href = "Projects.html";
+    }, 500);
+  }
+
+  function navigateToSkills() {
+    const btn = document.querySelector(".skills-button");
+    if (btn) {
+      btn.style.transition = "all 0.8s ease-in-out";
+      btn.style.transform = "translateX(100vw) translateY(-100vh)";
+    }
+    setTimeout(() => {
+      window.location.href = "SkillsTools.html";
+    }, 800);
+  }
+</script>
+       
 </body>
 </html>
