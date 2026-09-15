@@ -35,7 +35,7 @@ html, body {
     bottom: 0;
     background-image: url('glitter.gif');
     background-size: cover;
-    opacity: 0.5;
+    opacity: 0.18;
     z-index: -1;
 }
 
@@ -67,6 +67,37 @@ html, body {
     transition: opacity 0.3s ease-in-out;
 }
 
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.gallery-item {
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0s; }
+.gallery-item:nth-child(2) { animation-delay: 0.6s; }
+.gallery-item:nth-child(3) { animation-delay: 1.2s; }
+.gallery-item:nth-child(4) { animation-delay: 1.8s; }
+
+.gallery-image {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-image:hover {
+    transform: scale(1.08);
+}
+
 .glowing-bullets {
     list-style: none;
     text-align: center;
@@ -75,6 +106,7 @@ html, body {
 }
 
 .glowing-bullets li {
+    position: relative;
     font-size: 2rem;
     color: white;
     text-shadow: 0 0 20px white;
@@ -88,8 +120,26 @@ html, body {
     text-shadow: 0 0 30px pink;
 }
 
+.bullet.active {
+    color: pink;
+    text-shadow: 0 0 30px pink;
+}
+
+.bullet.active::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: pink;
+    margin: 6px auto 0;
+    box-shadow: 0 0 10px pink;
+}
+
 .content-box {
     display: none;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
     font-size: 1.2rem;
     color: white;
     text-align: center;
@@ -104,26 +154,9 @@ html, body {
     border-radius: 12px;
 }
 
-/* 📱 Responsive image gallery */
-.gallery-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
-}
-
-.gallery-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 12px;
-    object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-}
-
-.gallery-image:hover {
-    transform: scale(1.08);
+.content-box.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .go-back {
@@ -147,7 +180,6 @@ html, body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Firefly animations */
 @keyframes flowyLoop {
     0% { transform: translate(0, 0); }
     100% { transform: translate(1000px, 0); }
@@ -156,4 +188,9 @@ html, body {
 @keyframes reverseFlowyLoop {
     0% { transform: translate(1000px, 0); }
     100% { transform: translate(0, 0); }
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
